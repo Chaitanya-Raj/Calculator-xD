@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<fstream>
 #include<string>
-#include<conio.h>
 #include<math.h>
 #include<ctime>
 #include<process.h>
@@ -126,11 +125,16 @@ void calc_menu()
 						break;
 			case 7:sqroot();
 						break;
-			case 0:exit(0);
+			case 0:goto fx;
 			default:cout<<"\nEnter a Valid Choice !!!";
 		}
 		cout<<"\n\nDo you want to perform another operation? ";
 		cin>>flag;
+		fx:
+		if(flag!='y'||flag!='Y')
+		{
+			cout<<"\nExiting...";
+		}
 	}while(flag=='y'||flag=='Y');
 }
 
@@ -194,8 +198,28 @@ int main()
 	
 	date_time();
 	
-	calc_menu();
-	
-	getch();
-	return 0;	
+	int choice;
+	char flae;
+	do
+	{
+		cout<<"\n";
+		for(int i=0;i<80;i++)
+		{
+			cout<<"*";
+		}
+		cout<<"\n\nChoose an Activity\n\n";
+		cout<<"1.Calculator";
+		cout<<"\n0.Exit\n\n";
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:calc_menu();
+					break;
+			case 0:exit(0);
+			default:cout<<"\nChoose a valid option!!!";
+		}
+		cout<<"\n\nDo you want to do any other activity? ";
+		cin>>choice;
+	}while(flae=='y'||flae=='Y');
+	return 0;
 }
