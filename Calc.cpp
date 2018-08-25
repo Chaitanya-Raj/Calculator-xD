@@ -88,6 +88,17 @@ void sqroot()
 	cout<<"Square Root = "<<res;
 }
 
+void percentage()
+{
+	double perc;
+	cout<<"Enter the total amount : ";
+	cin>>y;
+	cout<<"Enter the current value : ";
+	cin>>x;
+	perc=(x/y)*100;
+	cout<<"Percentage = "<<perc<<"%";
+}
+
 void calc_menu()
 {
 	char flag;
@@ -107,6 +118,7 @@ void calc_menu()
 		cout<<"\n5.Modulus(%)";
 		cout<<"\n6.Power(^)";
 		cout<<"\n7.Square Root(v)";
+		cout<<"\n8.Percentage(%)";
 		cout<<"\n0.Exit\n\n\n";
 		cin>>ch;
 		switch(ch)
@@ -124,6 +136,8 @@ void calc_menu()
 			case 6:power();
 						break;
 			case 7:sqroot();
+						break;
+			case 8:percentage();
 						break;
 			case 0:goto fx;
 			default:cout<<"\nEnter a Valid Choice !!!";
