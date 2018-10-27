@@ -1,20 +1,44 @@
 #include<iostream>
-#include<stdlib.h>
-#include<fstream>
-#include<string>
+//#include<stdlib.h>
+//#include<fstream>
+//#include<string>
 #include<math.h>
 #include<ctime>
-#include<process.h>
-#include<vector>
+//#include<process.h>
+//#include<vector>
 
 using namespace std;
 
-double x,y;
+double x,y,res;
+char clr;
+int fl=0;
+
+void clear()
+{
+	cout<<"\n\nDo you want to reset?";
+	cin>>clr;
+	if(clr=='y'||clr=='Y')
+	{
+		fl=1;
+		res=0;
+	}
+	else
+	{
+		fl=0;
+	}
+}
 
 void basic_input()
 {
-	cout<<"\nEnter the first number : ";
-	cin>>x;
+	if(fl==0)
+	{
+		x=res;
+	}
+	else
+	{
+		cout<<"\nEnter the first number : ";
+		cin>>x;
+	}
 	cout<<"\nEnter the second number : ";
 	cin>>y;
 }
@@ -22,25 +46,22 @@ void basic_input()
 void addition()
 {
 	basic_input();
-	float sum;
-	sum=x+y;
-	cout<<"\nSum = "<<sum;
+	res=x+y;
+	cout<<"\nSum = "<<res;
 }
 
 void subtraction()
 {
 	basic_input();
-	float dif;
-	dif=x-y;
-	cout<<"\nDifference = "<<dif;
+	res=x-y;
+	cout<<"\nDifference = "<<res;
 }
 
 void multiplication()
 {
 	basic_input();
-	float prod;
-	prod=x*y;
-	cout<<"\nProduct = "<<prod;
+	res=x*y;
+	cout<<"\nProduct = "<<res;
 }
 
 void division()
@@ -52,9 +73,8 @@ void division()
 	}
 	else
 	{
-		float quo;
-		quo=x/y;
-		cout<<"\nResult = "<<quo;
+		res=x/y;
+		cout<<"\nResult = "<<res;
 	}
 }
 
@@ -70,7 +90,6 @@ void modulusx()
 
 void power()
 {
-	double res;
 	cout<<"\nEnter the number : ";
 	cin>>x;
 	cout<<"\nEnter the exponent : ";
@@ -81,7 +100,6 @@ void power()
 
 void sqroot()
 {
-	double res;
 	cout<<"\nEnter the number : ";
 	cin>>x;
 	res=sqrt(x);
@@ -90,13 +108,12 @@ void sqroot()
 
 void percentage()
 {
-	double perc;
 	cout<<"Enter the total amount : ";
 	cin>>y;
 	cout<<"Enter the current value : ";
 	cin>>x;
-	perc=(x/y)*100;
-	cout<<"Percentage = "<<perc<<"%";
+	res=(x/y)*100;
+	cout<<"Percentage = "<<res<<"%";
 }
 
 void calc_menu()
@@ -164,6 +181,46 @@ void date_time()
 
     cout << "\n\n--->Current Day, Date and Time is = "<< asctime(ti);
 }
+/*
+void quote()
+{
+	char retry = ' ';
+    ifstream quoteFile;
+	quoteFile.open("quotes.txt",ios::binary);
+	do
+    {
+    	srand(time(0));
+        string arr[100];
+        if (quoteFile.is_open())
+        {
+        	cout<<"\n\n";
+            while (!quoteFile.eof())
+            {
+            	quoteFile.seekg(rand());
+            	char ch;
+            	int i=0;
+				while(i<1)
+                {
+            		quoteFile.read(&ch,sizeof(ch));
+					arr[i]=ch;
+					i++;
+				}
+				int j=0;
+				while(j<1)
+                {
+                    cout<<arr[j];
+                    j++;
+				}
+            }
+            quoteFile.close();
+        }
+        else
+        {
+            cout << "Error. Unable to open file." << endl;
+            cout << "Try again? [Y]es / [N]o" << endl;
+        }
+    } while (retry == 'Y' || retry == 'y');
+}
 
 void quote()
 {
@@ -201,14 +258,14 @@ void quote()
         }
     } while (retry == 'Y' || retry == 'y');
 }
-
+*/
 
 int main()
 {
-	cout << "If you haven't got anything clever to say at the moment, use these!" << std::endl;
-	cout << "Just repeat the sentence and anyone will instantly agree with you!" << std::endl;
+//	cout << "If you haven't got anything clever to say at the moment, use these!" << std::endl;
+//	cout << "Just repeat the sentence and anyone will instantly agree with you!" << std::endl;
 
-	quote();
+//	quote();
 	
 	date_time();
 	
